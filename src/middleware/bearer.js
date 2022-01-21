@@ -1,6 +1,6 @@
 'use strict'
 
-const { User } = require('../models');
+const { Users } = require('../models');
 
 module.exports = async (req, res, next) => {
 
@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
     }
 
     const token = req.headers.authorization.split(' ').pop();
-    const validUser = await User.authenticateToken(token);
+    const validUser = await Users.authenticateToken(token);
 
     req.userInfo = validUser;
     req.token = validUser.token;

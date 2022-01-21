@@ -50,11 +50,13 @@ const UserModel = (sequelize, DataTypes) => {
   });
 
   Model.authenticateBasic = async function(username, password) {
-    try {
+    //try {
+      console.log("username, password");
       const user = await this.findOne({where: { username }});
-    } catch (e) {
-      throw new Error('Server Error: Not Found'); // if DB fails 
-    }
+
+   // } catch (e) {
+   //   throw new Error('Server Error: Not Found'); // if DB fails 
+  //  }
     const validUser = await bcrypt.compare(password, user.password); // compares entered PW with stored PW
     if (validUser) return user;
     throw new Error('invalid user'); // if credentials don't check out

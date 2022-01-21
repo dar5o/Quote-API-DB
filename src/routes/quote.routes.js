@@ -5,19 +5,13 @@ const express = require('express');
 const { Quotes } = require('../models');
 
 const bearerAuth = require('../middleware/bearer');
-
 const permissions = require('../middleware/acl');
-
 const router = express.Router();
 
 router.get('/quotes', bearerAuth, handleGetAll);
-
 router.get('/quotes/:id', bearerAuth, handleGetOne);
-
 router.put('/quotes/:id', bearerAuth, permissions('update'), handleUpdate);
-
 router.post('/quotes', bearerAuth, permissions('create'), handleCreate);
-
 router.delete('/quotes/:id', bearerAuth, permissions('delete'), handleDelete);
 
 async function handleGetAll(req, res) {

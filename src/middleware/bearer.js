@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const { Users } = require('../models');
 
@@ -19,4 +19,4 @@ module.exports = async (req, res, next) => {
   } catch (e) {
     res.status(403).send('Invalid Login');
   }
-}
+};

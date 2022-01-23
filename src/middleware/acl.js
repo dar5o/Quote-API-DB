@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Used one liners if there are issues check here!
 

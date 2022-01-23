@@ -8,7 +8,7 @@ const quoteModel = (sequelize, DataTypes) => sequelize.define('Quotes', {
   source: {
     type: DataTypes.STRING,
     defaultValue: 'unknown',
-  }
+  },
 });
 
 module.exports = quoteModel;

@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     const token = req.headers.authorization.split(' ').pop();
     const validUser = await Users.authenticateToken(token);
 
-    req.userInfo = validUser;
+    req.user = validUser;
     req.token = validUser.token;
     next();
   } catch (e) {

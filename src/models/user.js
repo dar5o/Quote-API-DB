@@ -37,11 +37,11 @@ const UserModel = (sequelize, DataTypes) => {
       get() {
         const acl = {
           user: ['read', 'create'],
-          admin:['read', 'create', 'update', 'delete']
+          admin:['read', 'create', 'update', 'delete'],
         };
         return acl[this.role];
-      }
-    }
+      },
+    },
   });
 
   Model.beforeCreate(async (user) => {
@@ -50,13 +50,9 @@ const UserModel = (sequelize, DataTypes) => {
   });
 
   Model.authenticateBasic = async function(username, password) {
-    //try {
-      console.log("username, password");
-      const user = await this.findOne({where: { username }});
 
-   // } catch (e) {
-   //   throw new Error('Server Error: Not Found'); // if DB fails 
-  //  }
+    console.log('In Auth Basic', username, password);
+    const user = await this.findOne({where: { username }});
     const validUser = await bcrypt.compare(password, user.password); // compares entered PW with stored PW
     if (validUser) return user;
     throw new Error('invalid user'); // if credentials don't check out
@@ -67,13 +63,13 @@ const UserModel = (sequelize, DataTypes) => {
       const parsedToken = jwt.verify(token, SECRET);
       const user = this.findOne({ where: { username: parsedToken.username }});
       if (user) return user;
-      throw new Error('User not found')     
+      throw new Error('User not found');     
     } catch (e) {
       throw new Error(e.message);
     }
   };
 
   return Model;
-}
+};
 
 module.exports = UserModel;

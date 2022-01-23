@@ -26,5 +26,5 @@ const DATABASE_CONFIG = process.env.NODE_ENV === 'production' ?
  module.exports = {
    db: sequelize,
    Quotes: new Collection(Quotes),
-   Users: new Collection(Users),
+   Users,
  }

@@ -91,7 +91,7 @@ Using `.sample.env` as a template, create a file named `.env` to contain your en
 } 
 ```
 
-![Wire Frame](/resources/wireframe.png)
+![Wire Frame](/resources/auth-wireframe.png)
 
 ---------------------------------
 

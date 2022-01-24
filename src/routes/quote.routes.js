@@ -32,20 +32,20 @@ async function handleUpdate(req, res) {
   const id = req.params.id;
   const obj = req.body;
   const updatedQuote = await Quotes.update(id, obj);
-  res.status(200).json(updatedQuote);
+  res.status(202).json(updatedQuote);
 }
 
 async function handleCreate(req, res) {
   console.log('hit on POST /quotes *****************');
   const obj = req.body;
   const newQuote = await Quotes.create(obj);
-  res.status(200).json(newQuote);
+  res.status(201).json(newQuote); 
 }
 
 async function handleDelete(req, res) {
   const id = req.params.id;
   const deletedQuote = await Quotes.delete(id);
-  res.status(200).json(deletedQuote);
+  res.status(204).json(deletedQuote);
 }
 
 module.exports = router;

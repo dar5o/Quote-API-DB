@@ -7,7 +7,8 @@
     "start": "NODE_ENV=test node index.js",
     "lint": "eslint **/*.js",
     "test": "jest --verbose --coverage",
-    "test-watch": "jest --watchAll --verbose --coverage"  },
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dar5o/Quote-API-DB.git"

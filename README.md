@@ -2,9 +2,7 @@
 
 ---------------------------------
 
-## Deployed on Heroku
-
-()[project url here]
+## Deployed on Heroku: [quote-api-db.herokuapp.com](https://quote-api-db.herokuapp.com/)
 
 ---------------------------------
 
